@@ -11,11 +11,9 @@ import ReactFlow, {
   Connection,
   useNodesState,
   useEdgesState,
-  BackgroundVariant, // Import the enum/type
+  BackgroundVariant,
 } from "reactflow";
 
-// Ensure styles are imported (ignore TS error if it persists in your IDE)
-// @ts-ignore
 import "reactflow/dist/style.css";
 
 type MindMapData = {
@@ -101,7 +99,6 @@ export default function MindMapPlayground() {
 
   return (
     <div className="h-screen bg-gray-50 flex">
-      {/* Sidebar */}
       <div className="w-80 border-r bg-white p-4 flex flex-col gap-4 overflow-y-auto">
         <h2 className="font-bold text-xl tracking-tight">MindMap Generator</h2>
 
@@ -146,7 +143,6 @@ export default function MindMapPlayground() {
         )}
       </div>
 
-      {/* Main Flow Area */}
       <div className="flex-1 relative">
         <ReactFlow
           nodes={nodes}
@@ -157,7 +153,6 @@ export default function MindMapPlayground() {
           onNodeClick={(_, node) => setSelectedNode(node.id)}
           fitView
         >
-          {/* Fixed "dots" assignment using BackgroundVariant enum */}
           <Background color="#ccc" variant={BackgroundVariant.Dots} gap={20} />
           <Controls />
           <MiniMap />
