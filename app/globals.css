@@ -18,6 +18,55 @@
     --foreground: #ededed;
   }
 }
+@import "tailwindcss";
+
+:root {
+  /* Modern Neutral Palette */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --accent: #0070f3;
+  --muted: #666666;
+  --border: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  
+  /* Smooth scale for spacing */
+  --spacing-container: clamp(1rem, 5vw, 2rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --accent: #3291ff;
+    --muted: #a1a1aa;
+    --border: #262626;
+  }
+}
+
+/* Global Styles for "Extraordinary" feel */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+  }
+
+  /* Smooth selection colors */
+  ::selection {
+    background-color: var(--accent);
+    color: white;
+  }
+}
 
 body {
 
